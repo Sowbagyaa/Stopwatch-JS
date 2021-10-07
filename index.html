@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stopwatch</title>
+  <title>DOM Manipulation</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -16,17 +16,76 @@
 
 <body id="body">
   <div class="wrapper">
-
+    <h4>DOM Manipulation & Form Validation</h4>
     <!-- <div class=" title " onmouseover="mOver(this)" onmouseout="mOut(this)">Stopwatch</div> -->
-    <h1>Stopwatch</h1>
-    <div class="container" id="container">
-      <div class="row">
-        <div class="col">
-          <div id="display"></div>
-          <p><span id="minutes">00</span>:<span id="seconds">00</span>:<span id="tens">00</span></p>
-          <button id="button-start">Start</button>
-          <button id="button-stop">Stop</button>
-          <button id="button-reset">Reset</button>
+
+
+
+    <div class="contents-container container-fluid ">
+
+      <div class="col-2 form">
+        <h4 style="text-align: center;">Form Validation</h4>
+        <div class="form-wrapper">
+          <form name="Registration" onsubmit="return validateForm()">
+            <h4>Enter the Details</h4>
+            <div class="mb-3">
+              <label for="name">Username</label>
+              <div class="error" id="nameErr"></div>
+              <input type="text" class="form-control" name="name">
+            </div>
+            <div class="mb-3">
+              <label>Gender</label>
+              <div class="error" id="genderErr"></div>
+              <div class="form-inline">
+                <label><input type="radio" name="gender" value="male"> Male</label>
+                <label><input type="radio" name="gender" value="female"> Female</label>
+              </div>
+
+            </div>
+            <div class="mb-3">
+              <label for=" mobile">Phone</label>
+              <div class="error" id="mobileErr"></div>
+              <input type="text" class="form-control" name="mobile" maxlength="10">
+
+            </div>
+            <div class="mb-3">
+              <label for="email">Email ID</label>
+              <div class="error" id="emailErr"></div>
+              <input type="text" class="form-control" name="email">
+
+            </div>
+
+            <div class="mb-3">
+              <label for="state">State</label>
+              <div class="error" id="stateErr"></div>
+              <select name="state" class="form-control">
+                <option>Select</option>
+                <option>Tamil Nadu</option>
+                <option>Karnataka</option>
+                <option>Kerala</option>
+                <option>Andhra Pradesh</option>
+              </select>
+
+            </div>
+
+
+            <div class="mb-3">
+              <input type="submit" class="form-control" value="Submit">
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="container timer" id="container">
+        <div class="row">
+          <div class="col">
+            <h3>Stopwatch</h3>
+            <div id="display"></div>
+            <p><span id="minutes">00</span>:<span id="seconds">00</span>:<span id="tens">00</span></p>
+            <button id="button-start">Start</button>
+            <button id="button-stop">Stop</button>
+            <button id="button-reset">Reset</button>
+          </div>
         </div>
       </div>
     </div>

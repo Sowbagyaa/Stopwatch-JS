@@ -19,7 +19,7 @@ window.onload = function () {
     Interval = setInterval(startTimer, 10);
     document.getElementById("display").style.display = "block"
     document.getElementById("display").innerHTML = "Stopwatch Started"
-    document.getElementById("body").style.backgroundColor = "DarkSlateGray"
+    document.getElementById("body").style.backgroundColor = "plum"
   }
 
   buttonStop.addEventListener("click", function () {
@@ -50,7 +50,7 @@ window.onload = function () {
     appendTens.innerHTML = tens;
     appendSeconds.innerHTML = seconds;
     document.getElementById("display").innerHTML = "Stopwatch is now Reset!"
-    document.getElementById("body").style.backgroundColor = "black"
+    document.getElementById("body").style.backgroundColor = "cadetBlue"
     // document.getElementById("container").style.boxShadow = " 4px 4px 8px white"
   }
 
@@ -87,9 +87,85 @@ window.onload = function () {
     }
 
   }
-
-
-
 }
+
+function printError(elemId, hintMsg) {
+  document.getElementById(elemId).innerHTML = hintMsg;
+}
+
+function validateForm() {
+  var name = document.Registration.name.value;
+  var state = document.Registration.state.value;
+  var gender = document.Registration.gender.value;
+  var mobile = document.Registration.mobile.value;
+  var email = document.Registration.email.value;
+
+
+
+  var nameErr = emailErr = mobileErr = stateErr = genderErr = true;
+
+  if (name == "") {
+    printError("nameErr", "*Name is Required");
+  } else {
+    var regex = /^[a-zA-Z\s]+$/;
+    if (regex.test(name) === false) {
+      printError("nameErr", "Please enter a valid name");
+    } else {
+      printError("nameErr", "");
+      nameErr = false;
+    }
+  }
+
+  if (email == "") {
+    printError("emailErr", "*Email ID is required");
+  } else {
+    var regex = /^\S+@\S+\.\S+$/;
+    if (regex.test(email) === false) {
+      printError("emailErr", "Please enter a valid email address");
+    } else {
+      printError("emailErr", "");
+      emailErr = false;
+    }
+  }
+
+  if (mobile == "") {
+    printError("mobileErr", "*Phone Number is required");
+  } else {
+    var regex = /^[1-9]\d{9}$/;
+    if (regex.test(mobile) === false) {
+      printError("mobileErr", "Please enter a valid 10 digit mobile number");
+    } else {
+      printError("mobileErr", "");
+      mobileErr = false;
+    }
+  }
+
+  if (state == "Select") {
+    printError("stateErr", "*Please select your state");
+  } else {
+    printError("stateErr", "");
+    stateErr = false;
+  }
+
+  if (gender == "") {
+    printError("genderErr", "*Gender is required");
+  } else {
+    printError("genderErr", "");
+    genderErr = false;
+  }
+
+  if ((nameErr || emailErr || mobileErr || stateErr || genderErr) == true) {
+    return false;
+  } else {
+    var dataPreview = "You've entered the following details: \n" +
+      "Full Name: " + name + "\n" +
+      "Gender: " + gender + "\n";
+    "Mobile Number: " + mobile + "\n" +
+      "Email Address: " + email + "\n" +
+      "state: " + country + "\n";
+
+    window.alert(dataPreview);
+  }
+};
 
 

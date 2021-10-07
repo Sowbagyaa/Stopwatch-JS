@@ -19,7 +19,7 @@ window.onload = function () {
     Interval = setInterval(startTimer, 10);
     document.getElementById("display").style.display = "block"
     document.getElementById("display").innerHTML = "Stopwatch Started"
-    document.getElementById("body").style.backgroundColor = "plum"
+    document.getElementById("body").style.backgroundColor = "lavender"
   }
 
   buttonStop.addEventListener("click", function () {
